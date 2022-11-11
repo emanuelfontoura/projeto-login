@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Menu responsivo</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+            align-items: center;
+            background-color: blueviolet;
+        }
+
+        #check, .hamb{
+            display: none;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        .menu{
+            display: flex;
+            font-size: 1.5em;
+        }
+
+        .menu > li+li{
+            margin-left: 10px;
+        }
+
+        .menu-resp{
+            display: none;
+        }
+
+        @media (max-width: 650px){
+            .menu-normal{
+                display: none;
+            }
+
+            .menu-resp{
+                display: flex;
+            }
+
+            #item-1{
+                display: none;
+            }
+
+            .toggle{
+                font-size: 2em;
+                color: white;
+                background-color: none;
+            }
+
+            .toggle > label{
+                cursor: pointer;
+            }
+
+            .lista-resp{
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                left: -100%;
+                text-align: center;
+                top: 97px;
+                background-color: aquamarine;
+                padding-top: 50px;
+                transition: all 0.5s;
+            }
+
+            .lista-resp > li + li{
+                margin-top: 20px;
+            }
+
+            input:checked + .toggle ul{
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="menu-normal">
+        <div>
+            <a href="#"><img src="#" alt="Logo"></a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Loja</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="menu-resp">
+        <div>
+            <a href="#"><img src="#" alt="Logo"></a>
+        </div>
+
+        <input type="checkbox" id="item-1">
+        <div class="toggle">
+            <label for="item-1"><i class="fas fa-bars"></i></label>
+            <ul class="lista-resp">
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Loja</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</body>
+</html>
